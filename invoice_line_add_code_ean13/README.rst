@@ -7,7 +7,7 @@ Add product ean13 code field on account_invoice line linked to product_id.ean13
 
 Bug Tracker
 ===========
-Bugs are tracked on `GitHub Issues <https://github.com/pronexo-odoo/invoice_line_add_code_ean13/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/pronexo-odoo/odoo-extra-addons/issues>`_.
 
 Credits
 =======
