@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+=======
+<odoo>
+>>>>>>> 11.0
+	<data>
+
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">account.invoice.form </field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+<<<<<<< HEAD
+                <xpath expr="//field[@name='invoice_line']/tree//field[@name='product_id']" position="after">
+=======
+                <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='product_id']" position="after">
+>>>>>>> 11.0
+                    <field name="product_invoice_ean13_code" read_only="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+<<<<<<< HEAD
+</openerp>
+=======
+</odoo>
+>>>>>>> 11.0
