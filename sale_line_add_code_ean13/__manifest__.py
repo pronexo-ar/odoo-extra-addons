@@ -32,4 +32,7 @@
     'data': [
         'views/sale_order.xml',
     ],
+    'images': [
+        'static/description/number_codebar_order_sale.png',
+    ],
 }
