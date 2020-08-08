@@ -32,4 +32,7 @@
     'data': [
         'views/invoice_order.xml',
     ],
+    'images': [
+        'static/description/number_codebar_invoice.png',
+    ],
 }
