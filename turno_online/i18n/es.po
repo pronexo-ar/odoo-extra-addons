@@ -465,6 +465,9 @@ msgstr "Por favor, escriba su nombre."
 msgid "Please enter your phonenumber."
 msgstr "Por favor, introduzca su número de teléfono."
 
+msgid "Please enter your mobilenumber."
+msgstr "Por favor, introduzca su número de celular."
+
 #. module: turno_online
 #: code:addons/turno_online/controllers/main.py:0
 #, python-format
