@@ -69,6 +69,7 @@ class OnlineTurno(http.Controller):
             'name': request.env.user.partner_id.name if not request.env.user._is_public() else '',
             'email': request.env.user.partner_id.email if not request.env.user._is_public() else '',
             'phone': request.env.user.partner_id.phone if not request.env.user._is_public() else '',
+            'mobile': request.env.user.partner_id.mobile if not request.env.user._is_public() else '',
             'remarks': '',
             'error': {},
             'error_message': [],
@@ -101,6 +102,7 @@ class OnlineTurno(http.Controller):
                 'name': form_data.get('name', ''),
                 'email': form_data.get('email', ''),
                 'phone': form_data.get('phone', ''),
+                'mobile': form_data.get('mobile', ''),
                 'appointee_id': appointee_id,
                 'turno_option_id': turno_option_id,
                 'turno_date': turno_date,
@@ -168,6 +170,9 @@ class OnlineTurno(http.Controller):
             if not post.get('phone', False):
                 error['phone'] = True
                 error_message.append(_('Please enter your phonenumber.'))
+            if not post.get('mobile', False):
+                error['mobile'] = True
+                error_message.append(_('Please enter your mobilenumber.'))
 
         try:
             appointee_id = int(post.get('appointee_id', 0))
@@ -208,6 +213,7 @@ class OnlineTurno(http.Controller):
 
         if request.env.user._is_public():
             partner = request.env['res.partner'].sudo().search(['|', ('phone', 'ilike', values['phone']),
+                                                                     ('mobile', 'ilike', values['mobile']),   
                                                                      ('email', 'ilike', values['email'])])
             if partner:
                 partner_ids = [self.appointee_id_to_partner_id(appointee_id),
@@ -216,6 +222,7 @@ class OnlineTurno(http.Controller):
                 partner = request.env['res.partner'].sudo().create({
                     'name': values['name'],
                     'phone': values['phone'],
+                    'mobile': values['mobile'],
                     'email': values['email']
                 })
                 partner_ids = [self.appointee_id_to_partner_id(appointee_id),
@@ -632,4 +639,3 @@ class OnlineTurno(http.Controller):
                 self.online_turno_state_change(turno, previous_state)
 
         return request.redirect('/my/turnos-online')
-
